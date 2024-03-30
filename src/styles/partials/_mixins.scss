@@ -1,0 +1,72 @@
+@import './typography';
+
+// MOBILE
+@mixin font-mobile-body{
+    font-size: 13px;
+    line-height: 18px;
+}
+
+@mixin font-mobile-subheader{
+    font-style: 'Avenir-bold';
+    font-size: 13px;
+    line-height: 18px;
+}
+
+@mixin font-mobile-section-header{
+    font-style: 'Avenir-bold';
+    font-size: 12px;
+    line-height: 20px;
+}
+
+@mixin font-mobile-page-header{
+    font-style: 'Avenir-bold';
+    font-size: 24px;
+    line-height: 20px;
+}
+
+@mixin font-mobile-btn{
+    font-style: 'Avenir-bold';
+    font-size: 10px;
+    line-height: 20px;
+}
+
+// DESKTOP
+
+@mixin font-tabdesk-body{
+    font-size: 14px;
+    line-height: 22px;
+}
+
+@mixin font-tabdesk-subheader{
+    font-style: 'Avenir-bold';
+    font-size: 14px;
+    line-height: 22px;
+}
+
+@mixin font-tabsdesk-section-header{
+    font-style: 'Avenir-bold';
+    font-size: 12px;
+    line-height: 20px;
+}
+
+@mixin font-tabdesk-page-header{
+    font-style: 'Avenir-bold';
+    font-size: 33px;
+    line-height: 44px;
+}
+
+@mixin font-tabdesk-btn{
+    font-style: 'Avenir-bold';
+    font-size: 12px;
+    line-height: 20px;
+}
+
+//BREAKPOINTS
+
+@mixin tablet{
+    min-width: 768px;
+}
+
+@mixin desktop{
+    min-width: 1280px;
+}
