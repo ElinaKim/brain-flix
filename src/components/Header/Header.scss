@@ -1,0 +1,97 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+
+.header{
+    display: flex;
+    flex-direction: column;
+    @include tablet{
+        margin: 0rem 1.5rem;
+    }
+    @include desktop{
+        margin: 0rem 4rem;
+    }
+    &__logo{
+        width: 9.4rem;
+        margin: 1rem auto;
+        @include tablet{
+            margin: 1.5rem;
+        }
+    }
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+}
+
+.search__container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0rem 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    @include tablet{
+    }
+}
+
+.search__input{  //FIRST ELEMENT
+    width: 80%;
+    flex: 1;
+    @include tablet{
+        width: 100%;
+        flex: 2;
+    }
+}
+
+.search__field{
+    background: url('../../assets/icons/search.svg') no-repeat scroll 7px center;
+    background-position-x: middle;
+    padding: 1.25rem 2.1875rem;
+    height: 3.125rem;
+    width: 100%;
+    background-color: $alabaster;
+    border-radius: 7px;
+    border: solid 2px $mercury;
+    @include tablet{
+        padding-right: 6.25rem;
+    }
+}
+
+.search__field::placeholder{
+    color: $black;
+    @include font-mobile-body;
+}
+
+.search__avatar-cropper{ //SECOND ELEMENT
+    margin: 0rem 0rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    overflow: hidden;
+    border-radius: 50%;
+    @include tablet{
+        order: 3;
+    }
+}
+
+.search__avatar{ 
+    height: 100%;
+}
+
+
+.search__upload{  //THIRD ELEMENT
+    @include font-mobile-btn;
+    background: url('../../assets/icons/upload.svg') no-repeat scroll 8px center;
+    color: white;
+    background-color: $blue;
+    width: 100%;
+    padding: 1rem 1.8rem;
+    border-radius: 5px;
+    @include tablet{
+        flex: 1;
+        width: auto;
+        order: 2;
+    }
+}
