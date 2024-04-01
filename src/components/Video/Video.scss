@@ -1,0 +1,65 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+
+.videoPreview__img{
+    width: 100%;
+}
+
+.videoPreview__title{
+    @include font-mobile-page-header;
+    margin: 1.5rem 0rem;
+    @include tablet{
+        margin: 1rem 0rem;
+    }
+}
+
+.videoDetails{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0rem;
+    border-top: 2px solid $mercury;
+    border-bottom: 2px solid $mercury;
+    @include tablet{
+        border-top: none;
+        padding: 1rem 0rem;
+    }
+}
+
+.videoDetails__container{
+    @include tablet{
+        display: flex;
+        align-items: center;
+    }
+}
+
+.videoDetails__author{
+    @include font-mobile-subheader;
+}
+
+.videoDetails__date, .videoDetails__views, .videoDetails__likes{
+    color: $silver;
+}
+
+.videoDetails__views{
+    background: url('../../assets/icons/views.svg') no-repeat 0px center;
+    padding-left: 1.875rem;
+}
+
+.videoDetails__author, .videoDetails__views{
+    margin-bottom: 1rem;
+    @include tablet{
+        margin: 0;
+        margin-right: 24px;
+    }
+}
+
+.videoDetails__likes{
+    background: url('../../assets/icons/likes.svg') no-repeat 1px center;
+    padding-left: 1.875rem;
+}
+
+.videoDescription__text{
+    @include font-mobile-body;
+    margin: 1rem 0rem;
+}
