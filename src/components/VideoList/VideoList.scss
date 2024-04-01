@@ -1,0 +1,42 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+
+.videoList{
+    margin: 16px;
+    @include tablet{
+        margin: 32px;
+    }
+}
+.videoList__heading{
+    @include font-mobile-subheader;
+    color: $silver;
+}
+.video{
+    display: flex;
+    gap: 16px;
+    margin: 24px 0px;
+    @include tablet{
+        margin: 32px 0px;
+    }
+}
+.video__img{
+    width: 150px;
+    border-radius: 5px;
+    margin-bottom: 16px;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.details__title{
+    @include font-mobile-subheader;
+}
+
+.details__author{
+    @include font-mobile-body;
+}
