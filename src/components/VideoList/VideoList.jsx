@@ -17,24 +17,33 @@ export default function VideoList() {
         setSelectedVideo(video);
         setSelectedVideoDetails(videoDetails.find(item => item.id === video.id));
     }
-    const selectedVideoDetails = videoDetails.find(item => item.id === selectedVideo)
+
     const filteredVideos = video.filter((item) => selectedVideo.id !== item.id);
-    
+
     return(
     <div className='videoList'>
         <VideoPlayer selectedVideo={selectedVideoDetails} />
-        <h2 className='videoList__heading'>NEXT VIDEOS</h2>
+        <div className='videoComponent'>
+            <div className='videoComponent__video'>
+                <Video selectedVideo={selectedVideoDetails} />
+                <Comment comments={selectedVideoDetails.comments} />
+            </div>
+
+            <div className='videoComponent__videoList'>
+                <h2 className='videoList__heading'>NEXT VIDEOS</h2>
                 {
                     filteredVideos.map((video)=>(
                         <div className='video' key={video.id} onClick={() => handleVideoClick(video)}>
-                <img className='video__img' src={video.image} alt={video.title}></img>
-                <div className='details'>
-                    <h3 className='details__title'>{video.title}</h3>
-                    <p className='details__author'>{video.channel}</p>
+                            <img className='video__img' src={video.image} alt={video.title}></img>
+                            <div className='details'>
+                                <h3 className='details__title'>{video.title}</h3>
+                                <p className='details__author'>{video.channel}</p>
+                        </div>
+                    </div>
+                    ))
+                }
             </div>
         </div>
-        ))}
-
     </div>
     )
 }
