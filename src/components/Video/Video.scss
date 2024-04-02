@@ -9,7 +9,7 @@
         margin: 1rem 0rem;
     }
     @include desktop{
-        padding-right: 16px;
+        padding-right: 1rem;
     }
 }
 
@@ -49,7 +49,7 @@
     margin-bottom: 1rem;
     @include tablet{
         margin: 0;
-        margin-right: 24px;
+        margin-right: 1.5rem;
     }
 }
 
@@ -62,6 +62,6 @@
     @include font-mobile-body;
     margin: 1rem 0rem;
     @include desktop{
-        margin-right: 16px;
+        margin-right: 1rem;
     }
 }

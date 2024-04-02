@@ -3,9 +3,9 @@
 @use '../../styles/partials/reset' as *;
 
 .videoList{
-    margin: 16px;
+    margin: 1rem;
     @include tablet{
-        margin: 32px;
+        margin: 2rem;
     }
 }
 .videoList__heading{
@@ -14,23 +14,23 @@
 }
 .video{
     display: flex;
-    gap: 16px;
-    margin: 24px 0px;
+    gap: 1rem;
+    margin: 1.5rem 0rem;
     @include tablet{
-        margin: 32px 0px;
+        margin: 2rem 0rem;
     }
 }
 .video__img{
-    width: 150px;
+    width: 9.375rem;
     border-radius: 5px;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .details{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .details__title{
@@ -44,20 +44,19 @@
 .videoComponent{
     @include desktop{
         display: flex;
-        padding: 0px 48px;
+        padding: 0rem 3rem;
     }
 }
 
 .videoComponent__video{
     @include desktop{
         width: 60%;
-        // padding: 16px;
     }
 }
 
 .videoComponent__videoList{
     @include desktop{
     border-left: 3px solid $mercury;
-    padding: 24px;
+    padding: 1.5rem;
     }
 }
