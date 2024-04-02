@@ -1,0 +1,126 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+
+//COMMENT FORM
+.form{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin: 1rem 0rem;
+    @include tablet{
+        justify-content:space-around;
+    }
+}
+
+.form__imgDiv{
+    margin: 1rem 0rem;
+    width: 3.125rem;
+    height: 3.125rem;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.form__avatar{
+    height: 100%;
+}
+
+.form__textDiv{
+    width: 90%;
+    @include tablet{
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.form__comment{
+    @include tablet{
+        flex: 1;
+    }
+}
+
+.form__textDiv label{
+    @include font-mobile-subheader;
+    color: $silver;
+}
+
+.form__textDiv textarea{
+    @include font-mobile-body;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+    border-radius: 4px;
+    border: 2px solid $mercury;
+    background-color: $alabaster;
+    @include tablet{
+        padding: 0.75rem 0rem 0rem 0.75rem;
+        height: 50px;
+    }
+}
+
+.form__textDiv ::placeholder{
+    color: $black;
+}
+
+.form__btn{
+    @include font-mobile-btn;
+    margin: 16px 0px;
+    padding: 16px;
+    background: url('../../assets/icons/add_comment.svg') no-repeat scroll 10px center;
+    width: 100%;
+    background-color: $blue;
+    color: $white;
+    border-radius: 7px;
+    @include tablet{
+       width: 30%;
+       margin-bottom: 0.25rem;
+       height: 50px;
+    }
+
+}
+
+//COMMENT LIST
+.commentList__list{
+    margin-bottom: 24px;
+    @include tablet{
+        margin-bottom: 32px;
+    }
+}
+.commentList__list:last-child{
+    border-bottom: 2px solid $mercury ;
+}
+
+.commentList__item{
+    display: flex;
+    gap: 16px;
+    border-top: 2px solid $mercury;
+    padding: 16px 0px;
+}
+
+.comment__img{
+    background-color: $mercury;
+    width: 3.125rem;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.textDiv__container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.textDiv__date{
+    @include font-mobile-subheader;
+    color: $silver;
+}
+
+.textDiv__name{
+    @include font-mobile-subheader;
+}
+
+.comment__content{
+    @include font-mobile-body;
+}
