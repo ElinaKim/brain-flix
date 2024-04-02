@@ -2,15 +2,14 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/reset' as *;
 
-.videoPreview__video{
-    width: 100%;
-}
-
 .videoPreview__title{
     @include font-mobile-page-header;
     margin: 1.5rem 0rem;
     @include tablet{
         margin: 1rem 0rem;
+    }
+    @include desktop{
+        padding-right: 16px;
     }
 }
 
@@ -62,4 +61,7 @@
 .videoDescription__text{
     @include font-mobile-body;
     margin: 1rem 0rem;
+    @include desktop{
+        margin-right: 16px;
+    }
 }

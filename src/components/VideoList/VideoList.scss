@@ -40,3 +40,24 @@
 .details__author{
     @include font-mobile-body;
 }
+
+.videoComponent{
+    @include desktop{
+        display: flex;
+        padding: 0px 48px;
+    }
+}
+
+.videoComponent__video{
+    @include desktop{
+        width: 60%;
+        // padding: 16px;
+    }
+}
+
+.videoComponent__videoList{
+    @include desktop{
+    border-left: 3px solid $mercury;
+    padding: 24px;
+    }
+}
