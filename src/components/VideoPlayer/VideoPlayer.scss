@@ -1,0 +1,19 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+
+.videoPlayer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.videoPlayer__video{
+    width: 100%;
+    @include tablet{
+        width: 80%;
+    }
+    @include desktop{
+        width: 70%;
+    }
+}
