@@ -11,6 +11,9 @@ export default function VideoList() {
     const [selectedVideoDetails, setSelectedVideoDetails] = useState(videoDetails.find(item => item.id === videoDetails[0].id) || null);
 
     const handleVideoClick = (video) => {
+        if (!video.id) {
+            throw new Error('Invalid video');
+        }
         setSelectedVideo(video);
 
     }
