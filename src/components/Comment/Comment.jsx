@@ -2,6 +2,10 @@ import './Comment.scss'
 import avatar from '../../assets/images/Mohan-muruge.jpg'
 
 export default function Comment({comments}){
+    if(!comments){
+        return null
+    }
+
     return (
         <div className='comment'>
             <h3>{comments.length} Comments</h3>
@@ -19,15 +23,15 @@ export default function Comment({comments}){
             </form>
             <div className='commentList'>
                 <ul className='commentList__list'>
-                    {comments.map(comment => (
-                    <li className='commentList__item'>
+                    {comments.map((comment, index) => (
+                    <li key={index} className='commentList__item'>
                         <div className='comment__imgDiv'>
                             <div className='comment__img'></div>
                         </div>
                         <div className='comment__textDiv'>
                             <div className='textDiv__container'>
                             <h3 className='textDiv__name'>{comment.name}</h3>
-                            <p className='textDiv__date'>{comment.date}</p>
+                            <p className='textDiv__date'>{formatDate(new Date(comment.timestamp))}</p>
                             </div>
                             <p className='comment__content'>{comment.comment}</p>
                         </div>
@@ -37,4 +41,6 @@ export default function Comment({comments}){
             </div>
         </div>
     )
+    function formatDate(date){
+        return `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`}
 }
