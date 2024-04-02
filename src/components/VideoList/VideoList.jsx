@@ -6,8 +6,9 @@ import Video from '../../components/Video/Video'
 import Comment from '../../components/Comment/Comment'
 import VideoPlayer from '../VideoPlayer/VideoPlayer'
 
-export default function VideoList(){
-    const [selectedVideo, setSelectedVideo] = useState(videoDetails[0])
+export default function VideoList() {
+    const [selectedVideo, setSelectedVideo] = useState(video[0]);
+    const [selectedVideoDetails, setSelectedVideoDetails] = useState(videoDetails.find(item => item.id === videoDetails[0].id) || null);
 
     const handleVideoClick = (video) => {
         setSelectedVideo(video);
