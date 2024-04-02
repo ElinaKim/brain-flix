@@ -15,17 +15,18 @@ export default function VideoList() {
             throw new Error('Invalid video');
         }
         setSelectedVideo(video);
-
+        setSelectedVideoDetails(videoDetails.find(item => item.id === video.id));
     }
     const selectedVideoDetails = videoDetails.find(item => item.id === selectedVideo)
-    const filteredVideos = video.filter((item) => selectedVideo.id !== item.id)
+    const filteredVideos = video.filter((item) => selectedVideo.id !== item.id);
     
     return(
     <div className='videoList'>
         <VideoPlayer selectedVideo={selectedVideoDetails} />
         <h2 className='videoList__heading'>NEXT VIDEOS</h2>
-        {filteredVideos.map((video)=>(
-            <div className='video' key={video.id} onClick={() => handleVideoClick(video.id)}>
+                {
+                    filteredVideos.map((video)=>(
+                        <div className='video' key={video.id} onClick={() => handleVideoClick(video)}>
                 <img className='video__img' src={video.image} alt={video.title}></img>
                 <div className='details'>
                     <h3 className='details__title'>{video.title}</h3>
