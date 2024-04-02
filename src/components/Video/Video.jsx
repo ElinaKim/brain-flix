@@ -8,7 +8,7 @@ export default function Video({ selectedVideo }){
 
     return(
         <div className='videoPreview'>
-            <video className='videoPreview__img' controls poster={image}></video>
+            <video className='videoPreview__video' controls poster={image}></video>
             <h2 className='videoPreview__title'>{title}</h2>
             <div className='videoDetails'>
             <div className='videoDetails__container'>
