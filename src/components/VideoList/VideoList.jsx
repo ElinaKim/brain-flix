@@ -4,6 +4,7 @@ import video from '../../data/videos.json'
 import videoDetails from '../../data/video-details.json'
 import Video from '../../components/Video/Video'
 import Comment from '../../components/Comment/Comment'
+import VideoPlayer from '../VideoPlayer/VideoPlayer'
 
 export default function VideoList(){
     const [selectedVideo, setSelectedVideo] = useState(videoDetails[0])
@@ -17,8 +18,7 @@ export default function VideoList(){
     
     return(
     <div className='videoList'>
-        <Video selectedVideo={selectedVideoDetails || videoDetails[0]}/>
-        <Comment comments={selectedVideoDetails.comments|| videoDetails[0].comments}/>
+        <VideoPlayer selectedVideo={selectedVideoDetails} />
         <h2 className='videoList__heading'>NEXT VIDEOS</h2>
         {filteredVideos.map((video)=>(
             <div className='video' key={video.id} onClick={() => handleVideoClick(video.id)}>
