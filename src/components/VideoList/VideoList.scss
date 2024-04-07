@@ -2,12 +2,6 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/reset' as *;
 
-.videoList{
-    margin: 1rem;
-    @include tablet{
-        margin: 2rem;
-    }
-}
 .videoList__heading{
     @include font-mobile-subheader;
     color: $silver;
@@ -24,6 +18,9 @@
     width: 9.375rem;
     border-radius: 5px;
     margin-bottom: 1rem;
+    @include desktop{
+        width: 30%;
+    }
 }
 
 .details{
@@ -39,24 +36,4 @@
 
 .details__author{
     @include font-mobile-body;
-}
-
-.videoComponent{
-    @include desktop{
-        display: flex;
-        padding: 0rem 3rem;
-    }
-}
-
-.videoComponent__video{
-    @include desktop{
-        width: 60%;
-    }
-}
-
-.videoComponent__videoList{
-    @include desktop{
-    border-left: 3px solid $mercury;
-    padding: 1.5rem;
-    }
 }
