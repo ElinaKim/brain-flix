@@ -1,35 +1,11 @@
-import { useState } from 'react'
 import './VideoList.scss'
-import video from '../../data/videos.json'
-import videoDetails from '../../data/video-details.json'
-import Video from '../../components/Video/Video'
-import Comment from '../../components/Comment/Comment'
-import VideoPlayer from '../VideoPlayer/VideoPlayer'
+import '../../pages/Home/Home.scss'
 
-export default function VideoList() {
-    const [selectedVideo, setSelectedVideo] = useState(video[0]);
-    const [selectedVideoDetails, setSelectedVideoDetails] = useState(videoDetails.find(item => item.id === videoDetails[0].id) || null);
-
-    const handleVideoClick = (video) => {
-        if (!video.id) {
-            throw new Error('Invalid video');
-        }
-        setSelectedVideo(video);
-        setSelectedVideoDetails(videoDetails.find(item => item.id === video.id));
-    }
-
+export default function VideoList({video, selectedVideo, handleVideoClick}) {
     const filteredVideos = video.filter((item) => selectedVideo.id !== item.id);
 
     return(
-    <div className='videoList'>
-        <VideoPlayer selectedVideo={selectedVideoDetails} />
-        <div className='videoComponent'>
-            <div className='videoComponent__video'>
-                <Video selectedVideo={selectedVideoDetails} />
-                <Comment comments={selectedVideoDetails.comments} />
-            </div>
-
-            <div className='videoComponent__videoList'>
+            <div className='videoList'>
                 <h2 className='videoList__heading'>NEXT VIDEOS</h2>
                 {
                     filteredVideos.map((video)=>(
@@ -43,7 +19,5 @@ export default function VideoList() {
                     ))
                 }
             </div>
-        </div>
-    </div>
     )
 }
