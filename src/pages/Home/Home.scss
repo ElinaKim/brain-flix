@@ -1,0 +1,31 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+
+.videoMain{
+    margin: 1rem;
+    @include tablet{
+        margin: 2rem;
+    }
+}
+
+.videoComponent{
+    @include desktop{
+        display: flex;
+        padding: 0rem 3rem;
+    }
+}
+
+.videoComponent__description{
+    @include desktop{
+        width: 60%;
+    }
+}
+
+.videoComponent__videoList{
+    @include desktop{
+    border-left: 3px solid $mercury;
+    padding: 1.5rem;
+    width: 100%;
+    }
+}
