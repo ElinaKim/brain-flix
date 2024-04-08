@@ -7,6 +7,7 @@ import VideoPlayer from '../../components/VideoPlayer/VideoPlayer'
 import Video from '../../components/Video/Video'
 import Comment from '../../components/Comment/Comment'
 import VideoList from '../../components/VideoList/VideoList'
+import axios from 'axios'
 
 export default function Home() {
     const API_KEY = process.env.REACT_APP_API_KEY
