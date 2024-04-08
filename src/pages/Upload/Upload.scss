@@ -1,0 +1,161 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+
+.upload{
+    border-top: 2px solid $mercury;
+    margin: 1rem 0rem;
+}
+
+.upload__title{
+    @include font-mobile-page-header;
+    margin: 1rem;
+    @include tablet{
+        @include font-tabdesk-page-header;
+        padding: 1.75rem 0rem;
+        margin: 0rem 3rem;
+        border-bottom: 2px solid $mercury;
+
+    }
+    @include desktop{
+        margin: 0rem 4.5rem;
+    }
+}
+
+.form__upload{
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    @include tablet{
+        margin: 0rem 3rem;
+    }
+    @include desktop{
+        margin: 0rem 4.5rem;
+    }
+}
+
+.form__body{
+    @include desktop{
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.thumbnail__title{
+    margin: 1rem 0rem 0.5rem 0rem;
+}
+
+.thumbnail__title, .vidTitle__title, .description__title{
+    @include font-mobile-subheader;
+    color: $silver;
+    @include tablet{
+        @include font-tabdesk-subheader;
+    }
+}
+
+.thumbnail{
+    @include desktop{
+        width: 50%;
+    }
+}
+
+.thumbnail__img{
+    width: 100%;
+    @include tablet{
+        width: 40%;
+    }
+    @include desktop{
+        width: 100%;
+    }
+}
+
+.form__textContent{
+    @include desktop{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    }
+}
+
+.vidTitle{
+    margin-top: 1rem;
+}
+
+.vidTitle__input{
+    @include font-mobile-body;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+    border-radius: 4px;
+    border: 2px solid $mercury;
+    background-color: $alabaster;
+    height: 3.125rem;
+    @include tablet{
+        @include font-tabdesk-body;
+        padding: 0.75rem 0rem 0rem 0.75rem;
+    }
+}
+
+.description{
+    margin-top: 1rem;
+}
+
+.description__input{
+    @include font-mobile-body;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.25rem;
+    border-radius: 4px;
+    border: 2px solid $mercury;
+    background-color: $alabaster;
+    height: 7.5rem;
+    @include tablet{
+        @include font-tabdesk-body;
+        padding: 0.75rem 0rem 0rem 0.75rem;
+    }
+}
+
+.vidTitle ::placeholder, .description ::placeholder{
+    color: $black;
+}
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include tablet{
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        border-top: 2px solid $mercury;
+        margin-top: 2.25rem;
+    }
+}
+
+.btn__publish{
+    @include font-mobile-btn;
+    background: url('../../assets/icons/publish.svg') no-repeat scroll 8px center;
+    color: white;
+    background-color: $blue;
+    width: 100%;
+    padding: 1rem 1.8rem;
+    border-radius: 5px;
+    margin: 2.25rem 0rem;;
+    @include tablet{
+        width: 25%;
+        order: 2
+    }
+}
+
+.btn__cancel{
+    @include font-mobile-btn;
+    color: $blue;
+    margin-bottom: 1rem;
+    padding: 1rem 1.8rem;
+    @include tablet{
+        margin-right: 3rem;
+        margin-bottom: 0rem;
+    }
+}
