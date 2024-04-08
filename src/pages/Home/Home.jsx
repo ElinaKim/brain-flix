@@ -9,6 +9,7 @@ import Comment from '../../components/Comment/Comment'
 import VideoList from '../../components/VideoList/VideoList'
 
 export default function Home() {
+    const API_KEY = process.env.REACT_APP_API_KEY
     const [selectedVideo, setSelectedVideo] = useState(videoData[0]);
     const [selectedVideoDetails, setSelectedVideoDetails] = useState(videoDetails.find(item => item.id === videoDetails[0].id) || null);
 
