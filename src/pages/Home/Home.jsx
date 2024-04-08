@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './Home.scss'
 import videoData from '../../data/videos.json'
 import videoDetails from '../../data/video-details.json'
