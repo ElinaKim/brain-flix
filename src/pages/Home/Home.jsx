@@ -12,8 +12,7 @@ import axios from 'axios'
 const API_KEY = process.env.REACT_APP_API_KEY
 
 export default function Home() {
-    const API_KEY = process.env.REACT_APP_API_KEY
-    const [selectedVideo, setSelectedVideo] = useState(videoData[0]);
+    const [selectedVideo, setSelectedVideo] = useState(null);
     const [selectedVideoDetails, setSelectedVideoDetails] = useState(videoDetails.find(item => item.id === videoDetails[0].id) || null);
 
     const handleVideoClick = (video) => {
