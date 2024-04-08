@@ -14,6 +14,7 @@ const API_KEY = process.env.REACT_APP_API_KEY
 export default function Home() {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [selectedVideoDetails, setSelectedVideoDetails] = useState(videoDetails.find(item => item.id === videoDetails[0].id) || null);
+    const [videos, setVideos] = useState([])
 
     const handleVideoClick = (video) => {
         if (!video.id) {
