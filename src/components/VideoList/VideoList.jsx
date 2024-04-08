@@ -10,7 +10,7 @@ export default function VideoList({video, selectedVideo, handleVideoClick}) {
                 <h2 className='videoList__heading'>NEXT VIDEOS</h2>
                 {
                     filteredVideos.map((video)=>(
-                    <Link to={`/videos/${video.id}`}>
+                    <Link to={`/videos/${video.id}`} key={video.id}>
                         <div className='video' key={video.id} onClick={() => handleVideoClick(video)}>
                           <img className='video__img' src={video.image} alt={video.title}/>
                             <div className='details'>
