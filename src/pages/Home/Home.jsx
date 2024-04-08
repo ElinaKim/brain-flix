@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './Home.scss'
-import videoData from '../../data/videos.json'
 import videoDetails from '../../data/video-details.json'
 import Header from '../../components/Header/Header'
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer'
@@ -15,6 +14,19 @@ export default function Home() {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [selectedVideoDetails, setSelectedVideoDetails] = useState(videoDetails.find(item => item.id === videoDetails[0].id) || null);
     const [videos, setVideos] = useState([])
+
+    useEffect(()=>{
+        const fetchVideos = async()=> {
+            try {
+            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/?api_key=${API_KEY}`)
+            setVideos(response.data)
+            setSelectedVideo(response.data[0])
+            } catch (error) {
+                console.error('Invalid get request: ', error)
+            }
+        }
+        fetchVideos()
+    },[])
 
     const handleVideoClick = (video) => {
         if (!video.id) {
@@ -36,7 +48,7 @@ export default function Home() {
             </div>
             <div className='videoComponent__videoList'>
                 <VideoList
-                video={videoData}
+                video={videos}
                 selectedVideo={selectedVideo}
                 handleVideoClick={handleVideoClick}
                 />
