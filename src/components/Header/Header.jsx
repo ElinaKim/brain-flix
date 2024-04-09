@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Header(){
     return(
     <div className="header">
-        <Link to='/'>
+        <Link className='header__link' to='/'>
             <img className="header__logo" src={logoImage} alt='brand logo'/>
         </Link>
             <div className='search__container'>
@@ -15,7 +15,7 @@ export default function Header(){
             <div className='search__avatar-cropper'>
                 <img className='search__avatar' src={userImg} alt='user avatar'></img>
             </div>
-            <Link to='/upload'>
+            <Link className='search__uploadLink' to='/upload'>
                 <button className='search__upload'>UPLOAD</button>
             </Link>
             </div>
