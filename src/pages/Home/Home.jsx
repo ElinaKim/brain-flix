@@ -1,46 +1,58 @@
 import { useEffect, useState } from 'react'
 import './Home.scss'
-import videoDetails from '../../data/video-details.json'
 import Header from '../../components/Header/Header'
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer'
 import Video from '../../components/Video/Video'
 import Comment from '../../components/Comment/Comment'
 import VideoList from '../../components/VideoList/VideoList'
-import axios from 'axios'
+import { fetchVideos, fetchVideoDetails } from '../../api/videoApi'
 import {useParams} from 'react-router-dom'
-
-const API_KEY = process.env.REACT_APP_API_KEY
 
 export default function Home() {
     const { videoId } = useParams()
-    const [selectedVideo, setSelectedVideo] = useState(null);
-    const [selectedVideoDetails, setSelectedVideoDetails] = useState({});
     const [videos, setVideos] = useState([])
+    const [selectedVideo, setSelectedVideo] = useState(null);
+    const [selectedVideoDetails, setSelectedVideoDetails] = useState(null);
 
-    useEffect(()=>{
-        const fetchVideos = async()=> {
-            try {
-            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/?api_key=${API_KEY}`)
-            setVideos(response.data)
-            setSelectedVideo(response.data[0])
-            } catch (error) {
-                console.error('Invalid get request: ', error)
-            }
-        }
+    // 1st render: load videos -> set selected video to the first video -> load selected video details by video id
+    // when user selects video: get video id from URL -> find video in video array -> set selected video the video we found -> load selected video details by video id
+
+    useEffect(() => {
         fetchVideos()
-    },[])
+            .then((videos) => setVideos(videos))
+    }, [])
 
-    useEffect(()=>{
-        const fetchVideosById = async()=> {
-            try{
-            const response = await axios.get(`https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}?api_key=${API_KEY}`)
-            setSelectedVideoDetails(response.data)
-        } catch (error) {
-             console.error('Unable to get video details: ', error)
+    useEffect(() => {
+        if (videos.length === 0) {
+            return
         }
-    }
-        fetchVideosById()
-    },[videoId, API_KEY])
+
+        setSelectedVideo(videos[0])
+    }, [videos])
+
+    useEffect(() => {
+        if (!videoId) {
+            return
+        }
+
+        const video = videos.find(video => video.id === videoId)
+
+        if (!video) {
+            console.warn(`Video with ${videoId} were not found`)
+            return
+        }
+
+        setSelectedVideo(video)
+    }, [videoId])
+
+    useEffect(() => {
+        if (!selectedVideo || !selectedVideo.id) {
+            return
+        }
+
+        fetchVideoDetails(selectedVideo.id)
+            .then(videoDetails => setSelectedVideoDetails(videoDetails))
+    }, [selectedVideo])
 
     const handleVideoClick = (video) => {
         if (!video.id) {
@@ -50,21 +62,21 @@ export default function Home() {
         setSelectedVideoDetails(video);
     }
 
-    return(
+    return (
     <div className='home'>
         <Header />
         <div className='videoMain'>
-            <VideoPlayer selectedVideo={selectedVideoDetails} />
+            <VideoPlayer selectedVideo={selectedVideo} />
             <div className='videoComponent'>
                 <div className='videoComponent__video'>
                     <Video selectedVideo={selectedVideoDetails} />
-                    <Comment comments={selectedVideoDetails.comments} />
+                    <Comment comments={selectedVideoDetails?.comments} />
                 </div>
                 <div className='videoComponent__videoList'>
                     <VideoList
-                    video={videos}
-                    selectedVideo={selectedVideo}
-                    handleVideoClick={handleVideoClick}
+                        video={videos}
+                        selectedVideo={selectedVideo}
+                        handleVideoClick={handleVideoClick}
                     />
                 </div>
             </div>
