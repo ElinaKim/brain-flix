@@ -1,11 +1,10 @@
 import axios from 'axios'
 
-const API_KEY = process.env.REACT_APP_API_KEY
-const API_URL = process.env.REACT_APP_API_URL
+const API_PORT = process.env.REACT_APP_PORT
 
 export const fetchVideos = async () => {
     try {
-        const response = await axios.get(`${API_URL}/videos/?api_key=${API_KEY}`)
+        const response = await axios.get(`http://localhost:${API_PORT}/videos`)
         return response.data
     } catch (error) {
         console.error('Invalid get request: ', error)
@@ -14,7 +13,7 @@ export const fetchVideos = async () => {
 
 export const fetchVideoDetails = async (id) => {
     try {
-        const response = await axios.get(`${API_URL}/videos/${id}?api_key=${API_KEY}`)
+        const response = await axios.get(`http://localhost:${API_PORT}/videos${id}`)
         return response.data
     } catch (error) {
         console.error('Unable to get video details: ', error)
