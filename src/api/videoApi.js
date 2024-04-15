@@ -13,9 +13,18 @@ export const fetchVideos = async () => {
 
 export const fetchVideoDetails = async (id) => {
     try {
-        const response = await axios.get(`http://localhost:${API_PORT}/videos${id}`)
+        const response = await axios.get(`http://localhost:${API_PORT}/videos/${id}`)
         return response.data
     } catch (error) {
         console.error('Unable to get video details: ', error)
+    }
+}
+
+export const postVideo = async (title, description) => {
+    try {
+        const response = await axios.get(`http://localhost:${API_PORT}/videos`, {title: title, description: description})
+        return response
+    } catch (error) {
+        console.error('Error posting video: ', error)
     }
 }
