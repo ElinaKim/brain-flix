@@ -72,7 +72,7 @@ export default function Home() {
                 <div className='videoComponent__videoList'>
                     <VideoList
                         video={videos}
-                        selectedVideo={selectedVideo}
+                        selectedVideoId={selectedVideo?.id ?? null}
                         handleVideoClick={handleVideoClick}
                     />
                 </div>

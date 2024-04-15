@@ -2,11 +2,11 @@ import './VideoList.scss'
 import '../../pages/Home/Home.scss'
 import {Link} from 'react-router-dom'
 
-export default function VideoList({video, selectedVideo, handleVideoClick}) {
-    if (!selectedVideo) {
+export default function VideoList({video, selectedVideoId, handleVideoClick}) {
+    if (!selectedVideoId) {
         return null
     }
-    const filteredVideos = video.filter((item) => selectedVideo.id !== item.id);
+    const filteredVideos = video.filter((item) => selectedVideoId !== item.id);
     return(
             <div className='videoList'>
                 <h2 className='videoList__heading'>NEXT VIDEOS</h2>
