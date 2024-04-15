@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './Home.scss'
 import Header from '../../components/Header/Header'
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer'
-import Video from '../../components/Video/Video'
+import VideoDetails from '../../components/Video/VideoDetails'
 import VideoList from '../../components/VideoList/VideoList'
 import { fetchVideos, fetchVideoDetails } from '../../api/videoApi'
 import {useParams, useNavigate} from 'react-router-dom'
@@ -64,7 +64,7 @@ export default function Home() {
         <div className='videoMain'>
             <VideoPlayer selectedVideo={selectedVideo} />
             <div className='videoComponent'>
-                <Video selectedVideo={selectedVideoDetails} />
+                <VideoDetails videoDetails={selectedVideoDetails} />
                 <div className='videoComponent__videoList'>
                     <VideoList
                         video={videos}

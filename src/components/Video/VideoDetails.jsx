@@ -1,10 +1,11 @@
 import './Video.scss'
-import Comment from '../../components/Comment/Comment'
+import Comment from '../Comment/Comment'
 
-export default function Video({ selectedVideo }){
-    if(!selectedVideo){
+export default function VideoDetails({ videoDetails }){
+    if(!videoDetails){
         return null
     }
+
     const {
         title, 
         channel, 
@@ -12,7 +13,8 @@ export default function Video({ selectedVideo }){
         views, 
         likes, 
         description,
-        comments } = selectedVideo
+        comments 
+    } = videoDetails
 
     return (
         <div className='videoComponent__video'>
