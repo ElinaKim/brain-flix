@@ -6,9 +6,10 @@ import Video from '../../components/Video/Video'
 import Comment from '../../components/Comment/Comment'
 import VideoList from '../../components/VideoList/VideoList'
 import { fetchVideos, fetchVideoDetails } from '../../api/videoApi'
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 
 export default function Home() {
+    const navigate = useNavigate()
     const { videoId } = useParams()
     const [videos, setVideos] = useState([])
     const [selectedVideo, setSelectedVideo] = useState(null);
@@ -26,8 +27,8 @@ export default function Home() {
         if (videos.length === 0) {
             return
         }
-
         setSelectedVideo(videos[0])
+        navigate(`/videos/${videos[0].id}`)
     }, [videos])
 
     useEffect(() => {
@@ -36,11 +37,6 @@ export default function Home() {
         }
 
         const video = videos.find(video => video.id === videoId)
-
-        if (!video) {
-            console.warn(`Video with ${videoId} were not found`)
-            return
-        }
 
         setSelectedVideo(video)
     }, [videoId])
@@ -53,6 +49,7 @@ export default function Home() {
         fetchVideoDetails(selectedVideo.id)
             .then(videoDetails => setSelectedVideoDetails(videoDetails))
     }, [selectedVideo])
+
 
     const handleVideoClick = (video) => {
         if (!video.id) {
