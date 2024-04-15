@@ -1,21 +1,23 @@
 import Header from '../../components/Header/Header'
 import thumbnailImg from '../../assets/images/Upload-video-preview.jpg'
+import { postVideo } from '../../api/videoApi'
 import './Upload.scss'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function Upload(){
     const navigate = useNavigate()
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault()
         const form = event.target
         const title = form.title.value
         const description = form.description.value
-        if(!title || !description){
-            alert('Please enter your title and your description!')
-            return
+        console.log(title, description)
+        if(title !== '' || description !== ''){
+            const newVideo = await postVideo(title, description)
+            alert('Video uploaded successfully!')
+            // navigate('/') 
         }
-        alert('Video uploaded successfully!')
-        navigate('/') 
+        alert('Please enter your title and your description!')
     }
     return(
         <div>
@@ -48,7 +50,7 @@ export default function Upload(){
                                 className='btn__publish'
                                 >PUBLISH
                                 </button>
-                                <button className='btn__cancel'>CANCEL</button>
+                                <Link to={'/'}><button className='btn__cancel'>CANCEL</button></Link>
                         </div>
                     </form>
                 </div>
