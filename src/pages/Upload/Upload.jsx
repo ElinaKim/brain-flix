@@ -11,7 +11,6 @@ export default function Upload(){
         const form = event.target
         const title = form.title.value
         const description = form.description.value
-        console.log(title, description)
         if(title !== '' || description !== ''){
             const newVideo = await postVideo(title, description)
             alert('Video uploaded successfully!')
