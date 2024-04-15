@@ -1,7 +1,22 @@
+import { useEffect, useState } from 'react'
+
+import * as videoApi from '../../api/videoApi'
+
 import './Video.scss'
 import Comment from '../Comment/Comment'
 
-export default function VideoDetails({ videoDetails }){
+export default function VideoDetails({ videoId }) {
+    const [videoDetails, setVideoDetails] = useState(null)
+
+    useEffect(() => {
+        if (!videoId) {
+            return
+        }
+
+        videoApi.fetchVideoDetails(videoId)
+            .then(videoDetails => setVideoDetails(videoDetails))
+    }, [videoId])
+
     if(!videoDetails){
         return null
     }
