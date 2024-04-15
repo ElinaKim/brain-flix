@@ -8,21 +8,23 @@ export default function VideoList({video, selectedVideoId, handleVideoClick}) {
     }
     const filteredVideos = video.filter((item) => selectedVideoId !== item.id);
     return(
+        <div className='videoComponent__videoList'>
             <div className='videoList'>
                 <h2 className='videoList__heading'>NEXT VIDEOS</h2>
                 {
                     filteredVideos.map((video)=>(
-                    <Link to={`/videos/${video.id}`} key={video.id}>
-                        <div className='video' key={video.id} onClick={() => handleVideoClick(video)}>
-                          <img className='video__img' src={video.image} alt={video.title}/>
-                            <div className='details'>
-                                <h3 className='details__title'>{video.title}</h3>
-                                <p className='details__author'>{video.channel}</p>
+                        <Link to={`/videos/${video.id}`} key={video.id}>
+                            <div className='video' key={video.id} onClick={() => handleVideoClick(video)}>
+                            <img className='video__img' src={video.image} alt={video.title}/>
+                                <div className='details'>
+                                    <h3 className='details__title'>{video.title}</h3>
+                                    <p className='details__author'>{video.channel}</p>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
+                        </Link>
                     ))
                 }
             </div>
+        </div>
     )
 }

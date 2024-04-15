@@ -53,13 +53,12 @@ export default function Home() {
             <VideoPlayer selectedVideo={selectedVideo} />
             <div className='videoComponent'>
                 <VideoDetails videoId={ selectedVideo?.id ?? null} />
-                <div className='videoComponent__videoList'>
-                    <VideoList
-                        video={videos}
-                        selectedVideoId={selectedVideo?.id ?? null}
-                        handleVideoClick={handleVideoClick}
-                    />
-                </div>
+                
+                <VideoList
+                    video={videos}
+                    selectedVideoId={selectedVideo?.id ?? null}
+                    handleVideoClick={handleVideoClick}
+                />
             </div>
         </div>
     </div>
