@@ -14,9 +14,10 @@ export default function Upload(){
         if(title !== '' || description !== ''){
             const newVideo = await postVideo(title, description)
             alert('Video uploaded successfully!')
-            // navigate('/') 
+            navigate('/') 
+        } else {
+            alert('Please enter your title and your description!')
         }
-        alert('Please enter your title and your description!')
     }
     return(
         <div>
