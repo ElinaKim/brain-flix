@@ -22,7 +22,7 @@ export const fetchVideoDetails = async (id) => {
 
 export const postVideo = async (title, description) => {
     try {
-        const response = await axios.get(`http://localhost:${API_PORT}/videos`, {title: title, description: description})
+        const response = await axios.post(`http://localhost:${API_PORT}/videos`, {title: title, description: description})
         return response
     } catch (error) {
         console.error('Error posting video: ', error)
