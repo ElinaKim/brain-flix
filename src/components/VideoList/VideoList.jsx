@@ -1,5 +1,5 @@
 import './VideoList.scss'
-import '../../pages/Home/Home.scss'
+import '../../pages/HomePage/HomePage.scss'
 import {Link} from 'react-router-dom'
 
 export default function VideoList({video, selectedVideoId, handleVideoClick}) {

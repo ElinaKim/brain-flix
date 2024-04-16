@@ -2,6 +2,7 @@
 
 // MOBILE
 @mixin font-mobile-body{
+    font-weight: 300;
     font-size: 16px;
     line-height: 22px;
 }
@@ -13,20 +14,18 @@
 }
 
 @mixin font-mobile-section-header{
-    font-style: 'Avenir-bold';
+    font-weight: 700;
     font-size: 16px;
     line-height: 24px;
 }
 
 @mixin font-mobile-page-header{
-    font-style: 'Avenir-bold';
     font-weight: 700;
     font-size: 2.5rem; 
     line-height: 3rem;  
 }
 
 @mixin font-mobile-btn{
-    font-style: 'Avenir-bold';
     font-weight: 700;
     font-size: 18px;
     line-height: 24px;
@@ -35,30 +34,31 @@
 // DESKTOP
 
 @mixin font-tabdesk-body{
+    font-weight: 300;
     font-size: 18px;
     line-height: 26px;
 }
 
 @mixin font-tabdesk-subheader{
-    font-style: 'Avenir-bold';
+    font-weight: 600;
     font-size: 18px;
     line-height: 26px;
 }
 
 @mixin font-tabsdesk-section-header{
-    font-style: 'Avenir-bold';
+    font-weight: 700;
     font-size: 16px;
     line-height: 24px;
 }
 
 @mixin font-tabdesk-page-header{
-    font-style: 'Avenir-bold';
-    font-size: 36px; // Increase font size to 36px for example
-    line-height: 48px; // Increase line height proportionately
+    font-weight: 700;
+    font-size: 36px; 
+    line-height: 48px;
 }
 
 @mixin font-tabdesk-btn{
-    font-style: 'Avenir-bold';
+    font-weight: 300;
     font-size: 16px;
     line-height: 24px;
 }

@@ -32,6 +32,9 @@
 
 .details__title{
     @include font-mobile-subheader;
+    @include tablet{
+        @include font-tabdesk-subheader;
+    }
 }
 
 .details__author{

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-import './Home.scss'
+import './HomePage.scss'
 import Header from '../../components/Header/Header'
 import VideoPlayer from '../../components/VideoPlayer/VideoPlayer'
-import VideoDetails from '../../components/Video/VideoDetails'
+import VideoDetails from '../../components/VideoDetails/VideoDetails'
 import VideoList from '../../components/VideoList/VideoList'
 import { fetchVideos } from '../../api/videoApi'
 import {useParams, useNavigate} from 'react-router-dom'
 
-export default function Home() {
+export default function HomePage() {
     const navigate = useNavigate()
     const { videoId } = useParams()
     const [videos, setVideos] = useState([])

@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
-
 import * as videoApi from '../../api/videoApi'
-
-import './Video.scss'
+import './VideoDetails.scss'
 import Comment from '../Comment/Comment'
 
 export default function VideoDetails({ videoId }) {

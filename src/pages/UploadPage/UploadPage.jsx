@@ -1,10 +1,10 @@
 import Header from '../../components/Header/Header'
 import thumbnailImg from '../../assets/images/Upload-video-preview.jpg'
 import { postVideo } from '../../api/videoApi'
-import './Upload.scss'
+import './UploadPage.scss'
 import { useNavigate, Link } from 'react-router-dom'
 
-export default function Upload(){
+export default function UploadPage(){
     const navigate = useNavigate()
     const handleFormSubmit = async (event) => {
         event.preventDefault()

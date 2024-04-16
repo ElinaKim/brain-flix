@@ -1,18 +1,18 @@
 import './styles/main.scss'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from './pages/Home/Home'
-import Upload from './pages/Upload/Upload'
-import NotFound from './pages/NotFound/NotFound'
+import HomePage from './pages/HomePage/HomePage'
+import UploadPage from './pages/UploadPage/UploadPage'
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/videos/:videoId" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/upload" element={<UploadPage />} />
+          <Route path="/videos/:videoId" element={<HomePage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </div>
